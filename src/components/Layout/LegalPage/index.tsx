@@ -3,7 +3,7 @@ import BackToHome from "@/components/BackToHome";
 interface LegalSection {
   id: string;
   title: string;
-  content: string;
+  content?: string;
   items?: string[];
   subsections?: LegalSubsection[];
 }
@@ -11,7 +11,7 @@ interface LegalSection {
 interface LegalSubsection {
   id: string;
   title: string;
-  content: string;
+  content?: string;
   items?: string[];
 }
 
