@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import Axios from '@/api';
 import { SuccessNotification, ErrorNotification } from '@/utils/toast';
 import PremiumTextField from '@/components/FormikFields/PremiumTextField';
-import { FiUsers, FiCheckCircle, FiStar, FiAward, FiMail } from 'react-icons/fi';
+import { FiUsers, FiCheckCircle, FiStar, FiAward} from 'react-icons/fi';
 import BackToHome from "@/components/BackToHome"
 
 interface ReferralFriend {
@@ -20,6 +20,7 @@ const referralValidationSchema = Yup.object({
   referrerEmail: Yup.string()
     .email('Invalid email address')
     .required('Your email is required to process referrals'),
+  referrerName: Yup.string().required('Your name is required to process referrals'),
   friends: Yup.array().test('at-least-3-friends', 'Please add at least 3 friends to unlock VIP status', function (friends) {
     if (!friends) return false;
     const validFriends = friends.filter(friend =>
@@ -31,8 +32,9 @@ const referralValidationSchema = Yup.object({
   })
 });
 
-const getInitialValues = (friendCount: number = 3, referrerEmail: string = '') => ({
+const getInitialValues = (friendCount: number = 3, referrerEmail: string = '', referrerName: string = '') => ({
   referrerEmail,
+  referrerName,
   friends: Array.from({ length: friendCount }, () => ({ firstName: '', lastName: '', email: '' }))
 });
 
@@ -58,7 +60,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
     }
   }, [location.state]);
 
-  const handleReferralSubmit = async (values: { referrerEmail: string; friends: ReferralFriend[] }, { resetForm }: any) => {
+  const handleReferralSubmit = async (values: { referrerEmail: string; referrerName: string; friends: ReferralFriend[] }, { resetForm }: any) => {
     setIsLoading(true);
     try {
       // Filter out empty friends
@@ -73,7 +75,8 @@ function ThankYouPage({ }: ThankYouPageProps) {
 
       const response = await Axios.post('/lead/refer', {
         friends: validFriends,
-        referrerEmail: values.referrerEmail
+        referrerEmail: values.referrerEmail,
+        referrerName: values.referrerName
       });
 
       if (response.status === 200 || response.status === 201) {
@@ -187,7 +190,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
             </div>
 
             <Formik
-              initialValues={getInitialValues(friendCount, referrerInfo?.email || '')}
+              initialValues={getInitialValues(friendCount, referrerInfo?.email || '', referrerInfo?.name || '')}
               validationSchema={referralValidationSchema}
               onSubmit={handleReferralSubmit}
             >
@@ -206,10 +209,6 @@ function ThankYouPage({ }: ThankYouPageProps) {
                   <Form className="space-y-6">
                     {/* Referrer Email */}
                     <div className="bg-white/10 rounded-lg p-4 border border-white/20">
-                      <h3 className="text-base font-medium text-white mb-3 flex items-center">
-                        <FiMail className="w-4 h-4 mr-2" />
-                        Your Email (Required)
-                      </h3>
                       <PremiumTextField
                         field="referrerEmail"
                         label_text="Your Email Address"
@@ -217,6 +216,19 @@ function ThankYouPage({ }: ThankYouPageProps) {
                         type="email"
                         required
                         iconType="email"
+                      />
+                    </div>
+
+
+                    {/* Referrer Name */}
+                    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                      <PremiumTextField
+                        field="referrerName"
+                        label_text="Your Name"
+                        placeholder="Enter your name"
+                        type="text"
+                        required
+                        iconType="user"
                       />
                     </div>
 
