@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import Axios from '@/api';
 import { SuccessNotification, ErrorNotification } from '@/utils/toast';
 import PremiumTextField from '@/components/FormikFields/PremiumTextField';
-import { FiUsers, FiCheckCircle, FiStar, FiAward} from 'react-icons/fi';
+import { FiUsers, FiCheckCircle, FiStar, FiAward } from 'react-icons/fi';
 import BackToHome from "@/components/BackToHome"
 
 interface ReferralFriend {
@@ -32,33 +32,33 @@ const referralValidationSchema = Yup.object({
   })
 });
 
-const getInitialValues = (friendCount: number = 3, referrerEmail: string = '', referrerName: string = '') => ({
-  referrerEmail,
-  referrerName,
-  friends: Array.from({ length: friendCount }, () => ({ firstName: '', lastName: '', email: '' }))
-});
+// const getInitialValues = (friendCount: number = 3, referrerEmail: string = '', referrerName: string = '') => ({
+//   referrerEmail,
+//   referrerName,
+//   friends: Array.from({ length: friendCount }, () => ({ firstName: '', lastName: '', email: '' }))
+// });
 
 function ThankYouPage({ }: ThankYouPageProps) {
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
-  const [referrerInfo, setReferrerInfo] = useState<{ name: string, email: string } | null>(null);
+  // const [referrerInfo, setReferrerInfo] = useState<{ name: string, email: string } | null>(null);
   const [vipStatusUnlocked, setVipStatusUnlocked] = useState(false);
   const [submittedReferrals, setSubmittedReferrals] = useState(0);
   const [friendCount] = useState(3);
 
-  useEffect(() => {
-    // Get referrer info from location state or localStorage
-    const state = location.state as { referrerName?: string; referrerEmail?: string } | null;
-    const storedReferrer = localStorage.getItem('referrerInfo');
+  // useEffect(() => {
+  //   // Get referrer info from location state or localStorage
+  //   const state = location.state as { referrerName?: string; referrerEmail?: string } | null;
+  //   const storedReferrer = localStorage.getItem('referrerInfo');
 
-    if (state?.referrerName && state?.referrerEmail) {
-      setReferrerInfo({ name: state.referrerName, email: state.referrerEmail });
-      localStorage.setItem('referrerInfo', JSON.stringify({ name: state.referrerName, email: state.referrerEmail }));
-    } else if (storedReferrer) {
-      setReferrerInfo(JSON.parse(storedReferrer));
-    }
-  }, [location.state]);
+  //   if (state?.referrerName && state?.referrerEmail) {
+  //     setReferrerInfo({ name: state.referrerName, email: state.referrerEmail });
+  //     localStorage.setItem('referrerInfo', JSON.stringify({ name: state.referrerName, email: state.referrerEmail }));
+  //   } else if (storedReferrer) {
+  //     setReferrerInfo(JSON.parse(storedReferrer));
+  //   }
+  // }, [location.state]);
 
   const handleReferralSubmit = async (values: { referrerEmail: string; referrerName: string; friends: ReferralFriend[] }, { resetForm }: any) => {
     setIsLoading(true);
@@ -190,7 +190,11 @@ function ThankYouPage({ }: ThankYouPageProps) {
             </div>
 
             <Formik
-              initialValues={getInitialValues(friendCount, referrerInfo?.email || '', referrerInfo?.name || '')}
+              initialValues={{
+                referrerEmail: '',
+                referrerName: '',
+                friends: Array.from({ length: friendCount }, () => ({ firstName: '', lastName: '', email: '' }))
+              }}
               validationSchema={referralValidationSchema}
               onSubmit={handleReferralSubmit}
             >
