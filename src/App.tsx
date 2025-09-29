@@ -26,6 +26,18 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 import EarlyAccessPage from "./pages/EarlyAccessPage";
 // import ThankYouPage from "./pages/ThankYou";
 
+// Legal Pages
+import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
+import TermsOfService from "./pages/Legal/TermsOfService";
+import CookiePolicy from "./pages/Legal/CookiePolicy";
+import Accessibility from "./pages/Legal/Accessibility";
+import DataProcessingAgreement from "./pages/Legal/DataProcessingAgreement";
+import EnterpriseSLA from "./pages/Legal/EnterpriseSLA";
+import ExportCompliance from "./pages/Legal/ExportCompliance";
+import SubProcessors from "./pages/Legal/SubProcessors";
+import VulnerabilityDisclosure from "./pages/Legal/VulnerabilityDisclosure";
+import SecurityTrust from "./pages/Legal/SecurityTrust";
+
 const Home = () => {
 
   return (
@@ -107,6 +119,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      {/* <Header /> */}
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -115,6 +128,19 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           {/* <Route path="/enterprise-demo" element={<EnterpriseDemo />} /> */}
           <Route path="/access" element={<EarlyAccessPage />} />
+          
+          {/* Legal Pages */}
+          <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/legal/terms-of-service" element={<TermsOfService />} />
+          <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
+          <Route path="/legal/accessibility" element={<Accessibility />} />
+          <Route path="/legal/data-processing-agreement" element={<DataProcessingAgreement />} />
+          <Route path="/legal/enterprise-sla" element={<EnterpriseSLA />} />
+          <Route path="/legal/export-compliance" element={<ExportCompliance />} />
+          <Route path="/legal/sub-processors" element={<SubProcessors />} />
+          <Route path="/legal/vulnerability-disclosure" element={<VulnerabilityDisclosure />} />
+          <Route path="/legal/security-trust" element={<SecurityTrust />} />
+          
           <Route path="*" element={<Navigate to="/" />} />
           {/* <Route path="/thank-you" element={<ThankYouPage />} /> */}
         </Routes>

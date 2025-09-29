@@ -61,9 +61,19 @@ const Hero = () => {
               <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
                 <iframe 
                   src="https://www.loom.com/embed/8189c9253dbe473aba95925e901c7670?sid=5f4ffec5-570e-424a-b2d8-555bd5598a37&hide_owner=true" 
-                  frameBorder="0" 
                   allowFullScreen 
-                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  sandbox="allow-scripts allow-same-origin allow-presentation"
+                  style={{ 
+                    position: 'absolute', 
+                    top: 0, 
+                    left: 0, 
+                    width: '100%', 
+                    height: '100%',
+                    border: 'none'
+                  }}
+                  title="DeepTrust AI Platform Demo"
                 />
               </div>
             </div>

@@ -83,32 +83,84 @@ const Footer = () => {
             <h4 className="font-medium text-white mb-4">Legal & Security</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="/privacy-security" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
-                  Security
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
                 <button 
-                  onClick={() => navigate('/privacy-security')}
+                  onClick={() => navigate('/legal/privacy-policy')}
                   className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  Privacy & Security
+                  Privacy Policy
                 </button>
               </li>
               <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
-                  Contact
-                </a>
+                <button 
+                  onClick={() => navigate('/legal/terms-of-service')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/cookie-policy')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Cookie Policy
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/accessibility')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Accessibility
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/data-processing-agreement')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Data Processing Agreement
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/enterprise-sla')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Enterprise SLA
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/export-compliance')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Export Compliance
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/sub-processors')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Sub-Processors
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/vulnerability-disclosure')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Vulnerability Disclosure
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => navigate('/legal/security-trust')}
+                  className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  Security & Trust
+                </button>
               </li>
             </ul>
           </div>

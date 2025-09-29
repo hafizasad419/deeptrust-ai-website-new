@@ -1,0 +1,177 @@
+﻿Privacy Policy — DeepTrust AI
+Effective Date: September 1, 2025
+________________
+
+
+1. Who We Are
+DeepTrust AI (“we,” “our,” “us”) provides A Trust Enablement Platform that helps individuals and organizations manage, enhance, and expand their trusted relationships.
+Our website: https://mydeeptrust.ai
+ Contact: support@mydeeptrust.ai
+Address: 7520 Standish Pl, Suite 260, Rockville, MD 20855
+If you are located in the European Union, United Kingdom, or another jurisdiction with data protection laws, DeepTrust AI acts as the Data Controller for your personal data.
+________________
+
+
+2. What This Policy Covers
+This Privacy Policy explains how we collect, use, store, and share information when you use DeepTrust AI, including when you connect your Google or Microsoft accounts (Gmail, Outlook, Google Calendar, Outlook Calendar, and related services).
+________________
+
+
+3. Information We Collect
+a) Account Information
+* Name, email address, and profile image (when you sign in with Google or Microsoft).
+
+b) Contact & Network Data
+   * Contacts you import, sync, or assign into networks within DeepTrust AI.
+
+c) Google and Microsoft User Data (if you authorize)
+If you choose to connect Gmail, Outlook, Google Calendar, or Outlook Calendar, we may access:
+      * Email (Gmail/Outlook): message metadata (sender, recipient, subject, timestamps) and message drafts you explicitly approve to send.
+
+      * Calendar (Google/Outlook): event details (title, date/time, attendees, notes) to surface engagement opportunities and reminders.
+
+d) Technical Data
+         * Device/browser type, IP address, log data, and usage activity.
+
+________________
+
+
+4. How We Use Data
+We use collected data only to provide or improve user-facing features:
+            * Identify you in the app (name, profile).
+
+            * Display and enrich your contacts and networks.
+
+            * Surface timely notifications (e.g., birthdays, promotions, meeting reminders).
+
+            * Prepare AI-suggested drafts of emails, texts, or call reminders that you explicitly approve before sending.
+
+            * Sync approved events with your Google or Microsoft calendar (if enabled).
+
+            * Maintain and improve security, investigate abuse, and comply with applicable law.
+
+________________
+
+
+5. Limited Use of Google & Microsoft User Data
+Our use of data obtained via Google APIs complies with the Google API Services User Data Policy (including Limited Use).
+Our use of data obtained via Microsoft APIs complies with the Microsoft API Terms of Service and Microsoft Developer Policies.
+               * Data is only used to provide or improve user-facing features within DeepTrust AI.
+
+               * We do not sell, rent, or share user data with third parties.
+
+               * We do not use data for advertising, including personalized or interest-based ads.
+
+               * We do not transfer data except:
+
+                  * To provide or improve user-facing features, with your consent.
+
+                  * For security purposes (fraud/abuse prevention).
+
+                  * To comply with applicable law.
+
+                  * As part of a merger/acquisition, with prior notice and consent.
+
+                     * Human access to data is prohibited, unless:
+
+                        * You explicitly consent for support/troubleshooting.
+
+                        * Required for security/abuse investigations.
+
+                        * Required to comply with law.
+
+________________
+
+
+6. Sharing of Data
+We may share limited information only with:
+                           * Service providers (sub-processors): cloud hosting, analytics, or support vendors who process data on our behalf, under strict confidentiality and data processing agreements.
+
+                           * Legal compliance: where required by law.
+
+                           * Business transfers: with user notice and consent in case of merger or acquisition.
+
+We do not sell your data or provide it to advertisers.
+________________
+
+
+7. Legal Basis for Processing (GDPR/Global Laws)
+If you are located in the EU, UK, or other jurisdictions with similar requirements, our lawful bases for processing include:
+                              * Consent: when you connect Gmail, Outlook, or calendar integrations.
+
+                              * Contract: to provide the services you requested.
+
+                              * Legitimate Interests: improving features, preventing abuse, ensuring security.
+
+                              * Legal Obligation: compliance with applicable laws.
+
+________________
+
+
+8. Your Rights (GDPR, CCPA, Global)
+Depending on your location, you may have the following rights:
+                                 * Access: Request a copy of the data we hold about you.
+
+                                 * Rectification: Request correction of inaccurate or incomplete data.
+
+                                 * Erasure (“Right to be Forgotten”): Request deletion of your data.
+
+                                 * Restriction: Request limits on how we process your data.
+
+                                 * Data Portability: Request your data in a structured, machine-readable format.
+
+                                 * Withdraw Consent: Disconnect Google/Microsoft integrations anytime at your account settings or directly via Google/Microsoft account security dashboards.
+
+                                 * Opt-out (CCPA): You may opt out of the sale of data (though we never sell data).
+
+To exercise your rights, contact: support@mydeeptrust.ai
+________________
+
+
+9. Data Retention
+                                    * Account and API-connected data are retained while your account is active.
+
+                                    * Disconnecting Gmail/Outlook/Calendar deletes related data immediately.
+
+                                    * Account deletion results in erasure of all data within 30 days, except where retention is required by law.
+
+                                    * Backups auto-expire after 90 days.
+
+________________
+
+
+10. Security
+We implement technical and organizational measures to protect your data:
+                                       * Encryption in transit (TLS 1.2+) and at rest (AES-256).
+
+                                       * Role-based access controls.
+
+                                       * Continuous monitoring and audit logging.
+
+                                       * Annual security reviews and third-party assessments for restricted scopes.
+
+________________
+
+
+11. International Data Transfers
+If your data is transferred outside your country (e.g., to the United States), safeguards such as Standard Contractual Clauses (SCCs) are applied to ensure adequate protection under GDPR.
+________________
+
+
+12. Children
+DeepTrust AI is not directed to children under 16. We do not knowingly collect personal data from children.
+________________
+
+
+13. Changes to this Policy
+We may update this Privacy Policy as our product evolves. Material changes will be communicated via email, in-app notice, or both.
+________________
+
+
+14. Contact
+For privacy questions or data requests, contact:
+                                          * Email: support@mydeeptrust.ai
+
+                                          * Address: 7520 Standish Pl, Suite 260, Rockville, MD 20855
+
+________________
