@@ -258,7 +258,7 @@ function EarlyAccessPage() {
                           field="companyWebsite"
                           label_text="Company Website"
                           placeholder="eg. https://www.google.com"
-                          type="url"
+                          type="text"
                           required
                           iconType="globe"
                         />
