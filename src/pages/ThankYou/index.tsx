@@ -212,7 +212,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
                 return (
                   <Form className="space-y-6">
                     {/* Referrer Email */}
-                    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
+                    <div className="bg-white/10 rounded-lg p-4 border border-white/20 grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <PremiumTextField
                         field="referrerEmail"
                         label_text="Your Email Address"
@@ -221,11 +221,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
                         required
                         iconType="email"
                       />
-                    </div>
-
-
                     {/* Referrer Name */}
-                    <div className="bg-white/10 rounded-lg p-4 border border-white/20">
                       <PremiumTextField
                         field="referrerName"
                         label_text="Your Name"
@@ -236,18 +232,65 @@ function ThankYouPage({ }: ThankYouPageProps) {
                       />
                     </div>
 
-                    {values.friends.map((_, index) => (
-                      <div key={index} className="bg-white/10 rounded-lg p-4 border border-white/20">
+
+                    
+
+                    {/* First two sets of friends in grid layout */}
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {values.friends.slice(0, 2).map((_, index) => (
+                        <div key={index} className="bg-white/10 rounded-lg p-4 border border-white/20">
+                          <h3 className="text-base font-medium text-white mb-3 flex items-center">
+                            <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-black mr-2">
+                              {index + 1}
+                            </span>
+                            Friend {index + 1}
+                          </h3>
+
+                          <div className="grid md:grid-cols-2 gap-3">
+                            <PremiumTextField
+                              field={`friends.${index}.firstName`}
+                              label_text="First Name"
+                              placeholder="Enter first name"
+                              type="text"
+                              required
+                              iconType="user"
+                            />
+
+                            <PremiumTextField
+                              field={`friends.${index}.lastName`}
+                              label_text="Last Name"
+                              placeholder="Enter last name"
+                              type="text"
+                              required
+                              iconType="user"
+                            />
+                          </div>
+
+                          <PremiumTextField
+                            field={`friends.${index}.email`}
+                            label_text="Email Address"
+                            placeholder="Enter email address"
+                            type="email"
+                            required
+                            iconType="email"
+                          />
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Third friend - full width */}
+                    {values.friends.length > 2 && (
+                      <div className="bg-white/10 rounded-lg p-4 border border-white/20">
                         <h3 className="text-base font-medium text-white mb-3 flex items-center">
                           <span className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-xs font-bold text-black mr-2">
-                            {index + 1}
+                            3
                           </span>
-                          Friend {index + 1}
+                          Friend 3
                         </h3>
 
                         <div className="grid md:grid-cols-2 gap-3">
                           <PremiumTextField
-                            field={`friends.${index}.firstName`}
+                            field={`friends.2.firstName`}
                             label_text="First Name"
                             placeholder="Enter first name"
                             type="text"
@@ -256,7 +299,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
                           />
 
                           <PremiumTextField
-                            field={`friends.${index}.lastName`}
+                            field={`friends.2.lastName`}
                             label_text="Last Name"
                             placeholder="Enter last name"
                             type="text"
@@ -266,7 +309,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
                         </div>
 
                         <PremiumTextField
-                          field={`friends.${index}.email`}
+                          field={`friends.2.email`}
                           label_text="Email Address"
                           placeholder="Enter email address"
                           type="email"
@@ -274,7 +317,7 @@ function ThankYouPage({ }: ThankYouPageProps) {
                           iconType="email"
                         />
                       </div>
-                    ))}
+                    )}
 
 
                     {/* Status Display */}

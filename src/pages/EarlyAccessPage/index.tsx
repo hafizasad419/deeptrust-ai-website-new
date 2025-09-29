@@ -57,7 +57,7 @@ const initialValues: FormValues = {
 function EarlyAccessPage() {
 
   const [isLoading, setIsLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(!false);
 
   const handleSubmit = async (values: FormValues, { resetForm }: any) => {
     setIsLoading(true);
