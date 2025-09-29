@@ -1,7 +1,7 @@
 export interface LegalSection {
   id: string;
   title: string;
-  content: string;
+  content?: string;
   items?: string[];
   subsections?: LegalSubsection[];
 }
@@ -9,7 +9,7 @@ export interface LegalSection {
 export interface LegalSubsection {
   id: string;
   title: string;
-  content: string;
+  content?: string;
   items?: string[];
 }
 
