@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button } from './ui/button';
+// import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -46,10 +46,10 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
-  const handleLogin = () => {
-    navigate('/login');
-    setIsMobileMenuOpen(false);
-  };
+  // const handleLogin = () => {
+  //   navigate('/login');
+  //   setIsMobileMenuOpen(false);
+  // };
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md border-b border-gray-100' : 'bg-transparent'
@@ -113,6 +113,12 @@ const Header = () => {
               className="text-gray-700 hover:text-black transition-colors duration-200 font-normal text-sm font-inter"
             >
               Advisors
+            </button>
+            <button
+              onClick={() => navigate('/trust-manifesto')}
+              className="text-gray-700 hover:text-black transition-colors duration-200 font-normal text-sm font-inter"
+            >
+              Trust Manifesto
             </button>
             <button
               onClick={() => navigate('/access')}
@@ -186,12 +192,21 @@ const Header = () => {
               >
                 Pricing
               </button>
+
               <button
                 onClick={() => navigate('/access')}
                 className="text-left text-gray-700 hover:text-black transition-colors duration-200 font-normal text-sm font-inter"
               >
                 Early Access
               </button>
+
+              <button
+                onClick={() => navigate('/trust-manifesto')}
+                className="text-left text-gray-700 hover:text-black transition-colors duration-200 font-normal text-sm font-inter"
+              >
+                Trust Manifesto
+              </button>
+
               <button
                 onClick={() => scrollToSection('advisors')}
                 className="text-left text-gray-700 hover:text-black transition-colors duration-200 font-normal text-sm font-inter"
@@ -204,14 +219,14 @@ const Header = () => {
               >
                 Security
               </button>
-              <div className="border-t border-gray-100 pt-4 mt-4">
+              {/* <div className="border-t border-gray-100 pt-4 mt-4">
                 <Button
                   onClick={handleLogin}
                   className="bg-black text-white hover:bg-gray-800 transition-all duration-200 w-full font-inter"
                 >
                   App Login
                 </Button>
-              </div>
+              </div> */}
             </nav>
           </div>
         )}

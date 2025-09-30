@@ -96,7 +96,7 @@ const Advisors = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
           {advisorsData.slice(9, 11).map((advisor) => (
             <div 
               key={advisor.id}
@@ -128,6 +128,47 @@ const Advisors = () => {
                   <FaLinkedin className="w-5 h-5" />
                 </a>
               </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Advisors Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {advisorsData.slice(11).map((advisor) => (
+            <div 
+              key={advisor.id}
+              className="bg-white rounded-2xl p-6 text-center shadow-sm border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all duration-300 group"
+            >
+              {/* Photo */}
+              <div className="mb-6">
+                <img 
+                  src={advisor.image} 
+                  alt={advisor.name}
+                  className="w-20 h-20 rounded-full mx-auto border-4 border-gray-100 group-hover:border-gray-200 transition-colors duration-300 object-cover object-center"
+                />
+              </div>
+              
+              {/* Info */}
+              <h3 className="text-lg font-medium text-black mb-2">{advisor.name}</h3>
+              <p className="text-sm text-gray-600 mb-1">{advisor.title}</p>
+              <p className="text-sm text-gray-500 mb-4">{advisor.company}</p>
+              
+              {/* Bio Preview */}
+              <p className="text-xs text-gray-600 leading-relaxed line-clamp-3 mb-4">
+                {advisor.bio}
+              </p>
+
+              {/* LinkedIn Link */}
+              <a 
+                href={advisor.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors duration-300 text-sm"
+              >
+                <FaLinkedin className="w-4 h-4" />
+                <span>LinkedIn</span>
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
           ))}
         </div>

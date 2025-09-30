@@ -129,7 +129,7 @@ export const advisorsData: Advisor[] = [
     title: "Founder & CEO, Enterprise Sales Strategist",
     company: "Hunt Big Sales",
     bio: "Tom Searcy is a nationally recognized expert in large account sales strategy, author of multiple best-selling business books, and the Founder and CEO of Hunt Big Sales—a firm dedicated to helping mid-market companies secure 7-, 8-, and 9-figure deals with enterprise clients.",
-    quote: "DeepTrust AI represents the evolution of relationship-driven sales.",
+    quote: "High-level access and top-to-top introductions are the future of winning large sales. That's not new. What's new is Mydeeptrust.ai—and it changes the game. We'll be moving our clients onto this platform immediately. As I watched the demo, I kept hearing the Hamilton song in my head: 'The Room Where It Happens.' Every senior executive wants to be in that room, where the real decisions get made. In the past, growth-minded companies believed you had to push, grind, and claw your way to decision-makers. Mydeeptrust.ai flips that belief on its head. With it, you don't have to push to get into the room—you're invited in.",
     image: "/images/board-of-advisors/Tom-Searcy-Headshot-.jpg",
     linkedinUrl: "https://www.linkedin.com/in/tomsearcy"
   },
@@ -159,7 +159,7 @@ export const advisorsData: Advisor[] = [
     title: "Founder & CEO, Sales Thought Leader, Author, Conference Host",
     company: "Selling Power",
     bio: "Gerhard Gschwandtner is one of the most influential voices in global sales leadership. With over four decades of experience in the field, he is the Founder and CEO of Selling Power, the world's leading publication for sales managers and executives.",
-    quote: "This platform represents the future of sales relationship management.",
+    quote: "While traditional CRMs track transactions, mydeeptrust.ai transforms relationships. By shifting from tactical data management to trust-building intelligence, this platform addresses the fundamental challenge every business faces: how to move beyond mere customer acquisition to genuine relationship capital that drives sustainable growth.",
     image: "/images/board-of-advisors/Gerhard headshot.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/gerhard20"
   },
@@ -234,6 +234,15 @@ export const operatingTeamData: OperatingTeamMember[] = [
   },
   {
     id: 4,
+    name: "Benjamin Johnson",
+    title: "Chief Technology Officer | Serial Tech Founder | Product Ecosystem Architect",
+    company: "DeepTrust AI",
+    bio: "Benjamin Johnson is a proven technology leader with over five successful technical co-founder exits and more than $30 million raised across venture-backed companies. As CTO at Affiniti DeepTrust AI, he leads platform engineering, AI infrastructure, and product development—having managed the launch of over 94 products from conception to commercialization while building high-performing technical teams and scalable systems.",
+    image: "/images/board-of-advisors/benjamin-johnson.jpg",
+    linkedinUrl: "https://www.linkedin.com/in/benjaminrjohnson/"
+  },
+  {
+    id: 5,
     name: "Julian Guderley",
     title: "Head of Capital, Strategic Fundraising Leader, Narrative Architect",
     company: "DeepTrust AI",
@@ -243,9 +252,9 @@ export const operatingTeamData: OperatingTeamMember[] = [
   },
 
   {
-    id: 5,
+    id: 6,
     name: "Alicia Weitzel",
-    title: "Pending Director of Operations & Strategic Partnerships",
+    title: "Director of Operations & Strategic Partnerships",
     company: "Connexxus Planning Group",
     bio: "Alicia Weitzel is a powerhouse business strategist, operations leader, and revenue architect with over 25 years of executive experience scaling organizations from high-potential to high-performance.",
     image: "/images/board-of-advisors/Alicia Weitzel headshot.jpg",

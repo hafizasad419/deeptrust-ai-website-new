@@ -22,9 +22,10 @@ const PricingPage = lazy(() => import("./components/PricingPage"));
 const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 
+const EarlyAccessPage = lazy(() => import("./pages/EarlyAccessPage"));
+const TrustManifesto = lazy(() => import("./pages/TrustManifesto"));
 
-import EarlyAccessPage from "./pages/EarlyAccessPage";
-// import ThankYouPage from "./pages/ThankYou";
+
 
 // Legal Pages
 import PrivacyPolicy from "./pages/Legal/PrivacyPolicy";
@@ -128,6 +129,7 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           {/* <Route path="/enterprise-demo" element={<EnterpriseDemo />} /> */}
           <Route path="/access" element={<EarlyAccessPage />} />
+          <Route path="/trust-manifesto" element={<TrustManifesto />} />
           
           {/* Legal Pages */}
           <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
