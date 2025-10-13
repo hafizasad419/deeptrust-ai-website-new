@@ -6,10 +6,10 @@ import { ErrorNotification, SuccessNotification } from '@/utils/toast';
 import PremiumTextField from '@/components/FormikFields/PremiumTextField';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import {  ArrowRight, Shield, Zap, Crown } from 'lucide-react';
+import { ArrowRight, Shield, Zap, Crown } from 'lucide-react';
 import BackToHome from "@/components/BackToHome"
-import ThankYouPage from "@/pages/ThankYou";
 // import ProblemSection from "@/components/EarlyAccess/ProblemSection"
+import { useNavigate } from 'react-router-dom';
 
 interface FormValues {
   name: string;
@@ -57,8 +57,8 @@ const initialValues: FormValues = {
 function EarlyAccessPage() {
 
   const [isLoading, setIsLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
+  // const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
   const handleSubmit = async (values: FormValues, { resetForm }: any) => {
     setIsLoading(true);
     try {
@@ -73,13 +73,13 @@ function EarlyAccessPage() {
 
         resetForm();
         SuccessNotification('Thank you for your interest in Early Access. We will be in touch soon.');
-        setSubmitted(true);
-        // navigate('/thank-you', {
-        //   state: {
-        //     referrerName: values.name,
-        //     referrerEmail: values.email
-        //   }
-        // });
+        // setSubmitted(true);
+        navigate('/refer', {
+          state: {
+            referrerName: values.name,
+            referrerEmail: values.email
+          }
+        });
       } else {
         ErrorNotification('Something went wrong. Please try again.');
       }
@@ -157,11 +157,11 @@ function EarlyAccessPage() {
     }
   ];
 
-  if (submitted) {
-    return (
-      <ThankYouPage />
-    );
-  }
+  // if (submitted) {
+  //   return (
+  //     <ThankYouPage />
+  //   );
+  // }
 
   return (
     <div className="bg-black py-8">

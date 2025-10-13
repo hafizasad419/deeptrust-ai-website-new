@@ -24,6 +24,7 @@ const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 const EarlyAccessPage = lazy(() => import("./pages/EarlyAccessPage"));
 const TrustManifesto = lazy(() => import("./pages/TrustManifesto"));
+const ThankYouPage = lazy(() => import("./pages/ThankYou"));
 
 
 
@@ -129,6 +130,7 @@ function App() {
           <Route path="/pricing" element={<PricingPage />} />
           {/* <Route path="/enterprise-demo" element={<EnterpriseDemo />} /> */}
           <Route path="/access" element={<EarlyAccessPage />} />
+          <Route path="/refer" element={<ThankYouPage />} />
           <Route path="/trust-manifesto" element={<TrustManifesto />} />
           
           {/* Legal Pages */}
