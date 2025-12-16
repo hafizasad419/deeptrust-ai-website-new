@@ -110,7 +110,29 @@ function EarlyAccessPage() {
       // Extract error details from backend response
       const errorType = error.response?.data?.data?.errorType;
       const backendMessage = error.response?.data?.message;
+      const statusCode = error.response?.status;
       let errorMessage = 'Something went wrong. Please try again.';
+
+      // Helper function to detect duplicate contact errors in message
+      const isDuplicateError = (message: string | undefined): boolean => {
+        if (!message) return false;
+        const lowerMessage = message.toLowerCase();
+        return (
+          lowerMessage.includes('duplicated contacts') ||
+          lowerMessage.includes('duplicate contact') ||
+          lowerMessage.includes('does not allow duplicated') ||
+          lowerMessage.includes('already exists') ||
+          lowerMessage.includes('already registered')
+        );
+      };
+
+      // Prioritize duplicate error detection - check message content first regardless of errorType
+      // This handles cases where backend returns GHL_API_ERROR but message indicates duplicate
+      if (isDuplicateError(backendMessage) || statusCode === 409) {
+        errorMessage = "It looks like you've already registered. Please check your email for early access details.";
+        ErrorNotification(errorMessage);
+        return;
+      }
 
       // Handle specific error types according to backend error structure
       switch (errorType) {
@@ -127,12 +149,12 @@ function EarlyAccessPage() {
           errorMessage = "We're experiencing technical difficulties. Our team has been notified. Please try again later.";
           break;
         case 'GHL_API_ERROR':
-          // Check if it's a duplicate contact error from GHL
-          if (backendMessage?.toLowerCase().includes('duplicated contacts') || 
-              backendMessage?.toLowerCase().includes('duplicate contact')) {
+          // Replace generic backend GHL error messages with user-friendly alternatives
+          // Common case: duplicate contact errors from GHL (status 500 often indicates this)
+          if (statusCode === 500 || statusCode === 400) {
             errorMessage = "It looks like you've already registered. Please check your email for early access details.";
           } else {
-            errorMessage = backendMessage || 'Service temporarily unavailable. Please try again later.';
+            errorMessage = 'We encountered an issue processing your registration. Please try again or contact support if the problem persists.';
           }
           break;
         case 'UNEXPECTED_ERROR':
