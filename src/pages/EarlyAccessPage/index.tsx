@@ -127,7 +127,13 @@ function EarlyAccessPage() {
           errorMessage = "We're experiencing technical difficulties. Our team has been notified. Please try again later.";
           break;
         case 'GHL_API_ERROR':
-          errorMessage = backendMessage || 'Service temporarily unavailable. Please try again later.';
+          // Check if it's a duplicate contact error from GHL
+          if (backendMessage?.toLowerCase().includes('duplicated contacts') || 
+              backendMessage?.toLowerCase().includes('duplicate contact')) {
+            errorMessage = "It looks like you've already registered. Please check your email for early access details.";
+          } else {
+            errorMessage = backendMessage || 'Service temporarily unavailable. Please try again later.';
+          }
           break;
         case 'UNEXPECTED_ERROR':
         default:
