@@ -20,6 +20,16 @@ interface FormValues {
   companyWebsite: string;
 }
 
+interface ApiErrorResponse {
+  success: false;
+  message: string;
+  data: {
+    errorType: 'DUPLICATE_ENTRY' | 'VALIDATION_ERROR' | 'CONNECTION_ERROR' | 
+                'CONFIGURATION_ERROR' | 'GHL_API_ERROR' | 'UNEXPECTED_ERROR';
+    field?: string;
+  };
+}
+
 const validationSchema = Yup.object({
   name: Yup.string()
     .min(2, 'Name must be at least 2 characters')
@@ -86,51 +96,43 @@ function EarlyAccessPage() {
     } catch (error: any) {
       console.error('Form submission error:', error);
 
-      // Handle different types of errors with user-friendly messages
+      // Network error (no response from server)
+      if (!error.response) {
+        const errorMessage = error.message?.includes('timeout')
+          ? 'Request timed out. Please try again.'
+          : error.message?.includes('Network Error')
+          ? 'Network error. Please check your connection and try again.'
+          : 'Unable to connect to our servers. Please check your internet connection and try again.';
+        ErrorNotification(errorMessage);
+        return;
+      }
+
+      // Extract error details from backend response
+      const errorType = error.response?.data?.data?.errorType;
+      const backendMessage = error.response?.data?.message;
       let errorMessage = 'Something went wrong. Please try again.';
 
-      if (error.response) {
-        const status = error.response.status;
-        const serverMessage = error.response.data?.message;
-
-        switch (status) {
-          case 400:
-            errorMessage = serverMessage || 'Please check your information and try again.';
-            break;
-          case 401:
-            errorMessage = 'Authentication required. Please refresh and try again.';
-            break;
-          case 403:
-            errorMessage = 'Access denied. Please contact support if you believe this is an error.';
-            break;
-          case 409:
-            errorMessage = serverMessage || 'It looks like you\'ve already registered. Please check your email for early access details.';
-            break;
-          case 422:
-            errorMessage = serverMessage || 'Please provide valid information in all fields.';
-            break;
-          case 429:
-            errorMessage = 'Too many requests. Please wait a moment and try again.';
-            break;
-          case 500:
-            errorMessage = 'Our servers are experiencing issues. Please try again in a few minutes.';
-            break;
-          case 503:
-            errorMessage = 'Service temporarily unavailable. Please try again later.';
-            break;
-          default:
-            errorMessage = serverMessage || 'Something went wrong. Please try again.';
-        }
-      } else if (error.request) {
-        errorMessage = 'Unable to connect to our servers. Please check your internet connection and try again.';
-      } else if (error.message) {
-        if (error.message.includes('timeout')) {
-          errorMessage = 'Request timed out. Please try again.';
-        } else if (error.message.includes('Network Error')) {
-          errorMessage = 'Network error. Please check your connection and try again.';
-        } else {
-          errorMessage = error.message;
-        }
+      // Handle specific error types according to backend error structure
+      switch (errorType) {
+        case 'DUPLICATE_ENTRY':
+          errorMessage = backendMessage || "It looks like you've already registered. Please check your email for early access details.";
+          break;
+        case 'VALIDATION_ERROR':
+          errorMessage = backendMessage || 'Please provide valid information in all fields.';
+          break;
+        case 'CONNECTION_ERROR':
+          errorMessage = "We're experiencing connectivity issues. Please try again in a moment.";
+          break;
+        case 'CONFIGURATION_ERROR':
+          errorMessage = "We're experiencing technical difficulties. Our team has been notified. Please try again later.";
+          break;
+        case 'GHL_API_ERROR':
+          errorMessage = backendMessage || 'Service temporarily unavailable. Please try again later.';
+          break;
+        case 'UNEXPECTED_ERROR':
+        default:
+          errorMessage = backendMessage || 'Something went wrong. Please try again or contact support if the issue persists.';
+          break;
       }
 
       ErrorNotification(errorMessage);
