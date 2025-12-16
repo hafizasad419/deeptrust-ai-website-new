@@ -20,15 +20,15 @@ interface FormValues {
   companyWebsite: string;
 }
 
-interface ApiErrorResponse {
-  success: false;
-  message: string;
-  data: {
-    errorType: 'DUPLICATE_ENTRY' | 'VALIDATION_ERROR' | 'CONNECTION_ERROR' | 
-                'CONFIGURATION_ERROR' | 'GHL_API_ERROR' | 'UNEXPECTED_ERROR';
-    field?: string;
-  };
-}
+// interface ApiErrorResponse {
+//   success: false;
+//   message: string;
+//   data: {
+//     errorType: 'DUPLICATE_ENTRY' | 'VALIDATION_ERROR' | 'CONNECTION_ERROR' | 
+//                 'CONFIGURATION_ERROR' | 'GHL_API_ERROR' | 'UNEXPECTED_ERROR';
+//     field?: string;
+//   };
+// }
 
 const validationSchema = Yup.object({
   name: Yup.string()
